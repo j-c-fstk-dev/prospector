@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #0A2540;
+  --color-brand-medium: #1E3A5F;
+  --color-brand-light: #F5F7FA;
+  --color-brand-gray: #6B7280;
+  --color-brand-black: #111111;
+
+  --font-sans: "Montserrat", "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", "Poppins", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-light text-brand-black font-sans antialiased;
+  }
+
+  h1 {
+    @apply text-[32px] md:text-[48px] font-bold leading-tight text-brand-dark;
+  }
+
+  h2 {
+    @apply text-[24px] md:text-[32px] font-semibold leading-snug text-brand-dark;
+  }
+
+  h3 {
+    @apply text-[18px] font-semibold text-brand-dark;
+  }
+
+  p {
+    @apply text-[16px] leading-relaxed text-brand-black;
+  }
+
+  .section-spacing {
+    @apply py-[60px] md:py-[100px];
+  }
+
+  .container-custom {
+    @apply max-w-[1200px] mx-auto px-[16px] md:px-[24px];
+  }
+}
+
+.btn-primary {
+  @apply bg-brand-dark text-white px-8 py-4 rounded-[8px] font-semibold transition-colors duration-200 hover:bg-brand-medium inline-flex items-center justify-center gap-2;
+}
+
+.btn-secondary {
+  @apply border-2 border-brand-dark text-brand-dark px-8 py-4 rounded-[8px] font-semibold transition-colors duration-200 hover:bg-brand-dark hover:text-white inline-flex items-center justify-center gap-2;
+}
