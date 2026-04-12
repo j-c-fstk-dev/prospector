@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Caminho para o Sitemap da Santhiago Tecnologias
+Sitemap: https://www.santhtec.com.br/sitemap.xml

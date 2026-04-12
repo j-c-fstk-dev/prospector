@@ -140,7 +140,7 @@ export default function App() {
                   src="https://res.cloudinary.com/dr0weongo/image/upload/q_auto/f_auto/v1775234673/3_ys6izg.png" 
                   alt="Santhiago Tecnologias Logo" 
                   className={`transition-all duration-300 object-contain ${
-                    isScrolled ? "h-12" : "h-16"
+                    isScrolled ? "h-36" : "h-36"
                   }`}
                   referrerPolicy="no-referrer"
                 />
@@ -171,7 +171,7 @@ export default function App() {
                 src="https://res.cloudinary.com/dr0weongo/image/upload/q_auto/f_auto/v1775234673/3_ys6izg.png" 
                 alt="Santhiago Tecnologias Logo" 
                 className={`transition-all duration-300 object-contain ${
-                  isScrolled ? "h-12" : "h-14"
+                  isScrolled ? "h-36" : "h-36"
                 }`}
                 referrerPolicy="no-referrer"
               />
@@ -547,8 +547,8 @@ export default function App() {
               <div>
                 <h4 className="font-bold mb-4 uppercase text-xs tracking-widest text-gray-500">Contato</h4>
                 <ul className="space-y-2 text-gray-400">
-                  <li>Email: contato@santhiago.com.br</li>
-                  <li>Telefone: (00) 0000-0000</li>
+                  <li>Email: <a href="mailto:contato@santhtec.com.br" className="hover:text-white transition-colors">contato@santhtec.com.br</a></li>
+                  <li>Telefone: (12) 97409-5445</li>
                 </ul>
               </div>
               <div>
@@ -557,12 +557,16 @@ export default function App() {
                   <li><a href="#hero" className="hover:text-white transition-colors">Início</a></li>
                   <li><a href="#especificacoes" className="hover:text-white transition-colors">Especificações</a></li>
                   <li><a href="#cta" className="hover:text-white transition-colors">Contato</a></li>
+                  <li><a href="https://share.google/wZ4xHEfS9sCvVr2WR" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Nos avalie no Google</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div className="mt-16 pt-8 border-t border-white/10 text-center text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} Santhiago Tecnologias. Todos os direitos reservados.
+          </div>
+          <div className="text-center text-gray-500 text-sm mt-2">
+            desenvolvido por JC Consultoria Digital
           </div>
         </div>
       </footer>
