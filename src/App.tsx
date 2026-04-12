@@ -251,7 +251,7 @@ export default function App() {
 
       {/* Add padding to the top of the page to account for fixed header */}
       <div className="">
-        <section id="hero" className="bg-white pt-24 md:pt-32 overflow-hidden pb-0">
+        <section id="hero" className="bg-white pt-40 md:pt-48 overflow-hidden pb-8">
           <div className="container-custom">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               {/* Image Carousel - First on Mobile */}
