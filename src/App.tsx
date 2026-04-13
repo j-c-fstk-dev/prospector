@@ -497,20 +497,13 @@ export default function App() {
                 Acesse todas as informações de instalação, configuração e funcionamento do Prospector III 560.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <a 
                 href="/manual-prospector-iii-560" 
                 className="btn-primary bg-brand-dark text-white hover:bg-brand-medium px-8 py-4 text-lg inline-flex items-center justify-center gap-3"
               >
                 <FileText size={20} />
                 Baixar manual técnico completo
-              </a>
-              <a 
-                href="/manual-prospector-iii-560" 
-                className="btn-secondary px-8 py-4 text-lg inline-flex items-center justify-center gap-3"
-              >
-                <ArrowRight size={20} />
-                Ou acessar versão online
               </a>
             </div>
           </div>
