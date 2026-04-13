@@ -613,7 +613,6 @@ export default function App() {
                   <li><a href="#hero" className="hover:text-white transition-colors">Início</a></li>
                   <li><a href="#especificacoes" className="hover:text-white transition-colors">Especificações</a></li>
                   <li><a href="/manual-prospector-iii-560" className="hover:text-white transition-colors">Manual técnico</a></li>
-                  <li><a href="#cta" className="hover:text-white transition-colors">Contato</a></li>
                   <li><a href="https://share.google/wZ4xHEfS9sCvVr2WR" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Nos avalie no Google</a></li>
                 </ul>
               </div>
