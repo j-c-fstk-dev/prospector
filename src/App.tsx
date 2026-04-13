@@ -271,9 +271,12 @@ export default function App() {
                 transition={{ duration: 0.6 }}
                 className="order-2 md:order-1"
               >
-                <h1>Mais eficiência no aquecimento solar com controle automático inteligente</h1>
+                <h1>Mais eficiência no aquecimento solar com controle automático</h1>
                 <p className="mt-6 text-brand-gray text-lg">
-                  Automatize o funcionamento da bomba, reduza desperdícios e aumente o desempenho do seu sistema com um controlador térmico confiável.
+                  Automatize o funcionamento da bomba, reduza desperdícios e aumente o desempenho do seu sistema de aquecimento solar com um controlador térmico confiável.
+                </p>
+                <p className="mt-4 text-brand-medium font-semibold">
+                  Ideal para instaladores, técnicos e empresas do setor
                 </p>
                 <div className="mt-10 flex flex-col sm:flex-row gap-4">
                   <a href={WHATSAPP_LINK} className="btn-primary">
@@ -292,7 +295,7 @@ export default function App() {
             <div className="container-custom text-center">
               <p className="text-brand-dark font-semibold text-lg md:text-xl flex items-center justify-center gap-3">
                 <CheckCircle2 className="text-blue-500" size={24} />
-                Mais de 4 mil unidades já aplicadas em sistemas de aquecimento solar
+                Mais de 4 mil unidades já aplicadas em sistemas reais de aquecimento solar
               </p>
             </div>
           </div>
@@ -337,17 +340,20 @@ export default function App() {
               <h2>A solução é automatizar o controle</h2>
               <div className="mt-6 space-y-4">
                 <p>
-                  O <strong>Prospector III 560</strong> é um controlador de temperatura diferencial que gerencia automaticamente o funcionamento da bomba com base na diferença de temperatura entre os sensores.
+                  O <strong>Prospector III 560</strong> é um controlador diferencial de temperatura que gerencia automaticamente o funcionamento da bomba com base na diferença de temperatura entre os sensores.
                 </p>
                 <p>
                   Isso garante máxima eficiência e segurança no sistema, eliminando o erro humano e o desperdício energético.
+                </p>
+                <p className="font-semibold text-brand-medium mt-4">
+                  Reduz custos operacionais e aumenta a eficiência do sistema automaticamente.
                 </p>
                 <p className="font-semibold text-brand-medium">
                   Ideal para instaladores e profissionais que buscam eficiência e confiabilidade no sistema.
                 </p>
               </div>
               <div className="mt-8">
-                <a href={WHATSAPP_LINK} className="btn-primary">
+                <a href={WHATSAPP_LINK} className="btn-secondary">
                   Quero automatizar meu sistema agora
                 </a>
               </div>
@@ -455,7 +461,7 @@ export default function App() {
       <section id="video" className="section-spacing bg-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2>Veja o funcionamento na prática</h2>
+            <h2>Veja o Prospector III em funcionamento</h2>
           </div>
           <div className="max-w-4xl mx-auto aspect-video bg-brand-dark rounded-2xl flex flex-col items-center justify-center relative group cursor-pointer overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-brand-dark/40 group-hover:bg-brand-dark/20 transition-colors z-10"></div>
@@ -518,7 +524,7 @@ export default function App() {
       {/* 10. CTA FINAL */}
       <section id="cta" className="section-spacing bg-brand-dark text-white text-center">
         <div className="container-custom">
-          <h2 className="text-white mb-8">Fale com um especialista e descubra como aplicar no seu sistema</h2>
+          <h2 className="text-white mb-8">Fale com um especialista e veja como aplicar no seu sistema</h2>
           <div className="flex flex-col items-center gap-4">
             <a href={WHATSAPP_LINK} className="btn-primary bg-white text-brand-dark hover:bg-gray-100 px-12 py-5 text-xl">
               Fale com um especialista
@@ -541,6 +547,9 @@ export default function App() {
               />
               <p className="text-gray-400 max-w-sm">
                 Soluções para automação térmica de alta performance e confiabilidade.
+              </p>
+              <p className="text-gray-500 text-sm mt-2">
+                Produto desenvolvido para aplicações em sistemas de aquecimento solar
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
