@@ -34,14 +34,13 @@ function ManualPage() {
       <header className="bg-white border-b border-gray-100 sticky top-0 z-40">
         <div className="container-custom flex justify-between items-center py-4">
           <div className="flex items-center">
-            <a href="/" className="flex items-center gap-3">
+            <a href="/">
               <img 
                 src="https://res.cloudinary.com/dr0weongo/image/upload/q_auto,f_webp,f_auto/v1775234673/3_ys6izg.png" 
                 alt="Santhiago Tecnologias Logo" 
-                className="h-12 w-auto object-contain"
+                className="h-36 w-auto object-contain"
                 referrerPolicy="no-referrer"
               />
-              <span className="text-brand-dark font-semibold">Santhiago Tecnologias</span>
             </a>
           </div>
           <a href="/" className="text-brand-medium hover:text-brand-dark transition-colors">
@@ -259,7 +258,7 @@ function ManualPage() {
             <img 
               src="https://res.cloudinary.com/dr0weongo/image/upload/q_auto,f_webp,f_auto/v1775234673/3_ys6izg.png" 
               alt="Santhiago Tecnologias Logo" 
-              className="h-16 w-auto object-contain mb-6 brightness-0 invert mx-auto"
+              className="h-32 w-auto object-contain mb-6 brightness-0 invert mx-auto"
               loading="lazy"
               referrerPolicy="no-referrer"
             />
