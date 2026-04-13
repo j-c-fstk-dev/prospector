@@ -28,6 +28,7 @@ function ManualPage() {
       <SEOHead 
         title="Manual Prospector III 560 | Instalação e Configuração"
         description="Baixe o manual completo do Prospector III 560. Instruções de instalação, configuração e funcionamento do controlador de aquecimento solar."
+        canonical="https://santhtec.com.br/manual-prospector-iii-560"
       />
       <div className="min-h-screen bg-white">
       {/* Header */}

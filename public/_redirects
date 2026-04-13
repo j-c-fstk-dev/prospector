@@ -2,3 +2,4 @@
 /sitemap.xml /sitemap.xml 200
 /robots.txt /robots.txt 200
 /* /index.html 200
+https://www.santhtec.com.br/* https://santhtec.com.br/:splat 301!
