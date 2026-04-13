@@ -5,6 +5,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import SEOHead from "./SEOHead";
 import { 
   CheckCircle2, 
   AlertCircle, 
@@ -19,7 +20,8 @@ import {
   Sun,
   MessageCircle,
   Menu,
-  X
+  X,
+  FileText
 } from "lucide-react";
 
 const WHATSAPP_LINK = "https://wa.me/5512974095445?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Prospector%20III%20560.";
@@ -118,11 +120,16 @@ export default function App() {
     { name: "Aplicações", href: "#aplicacoes" },
     { name: "Benefícios", href: "#beneficios" },
     { name: "Especificações", href: "#especificacoes" },
-    { name: "Contatos", href: "#cta" },
+    { name: "Manual técnico", href: "/manual-prospector-iii-560" },
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
+      <SEOHead 
+        title="Prospector III 560 | Controlador para aquecimento solar"
+        description="Controlador de aquecimento solar com automação inteligente. Mais eficiência, economia e segurança para sistemas residenciais e comerciais."
+      />
+      <div className="flex flex-col min-h-screen">
       {/* HEADER */}
       <header 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -131,9 +138,9 @@ export default function App() {
             : "bg-white py-4"
         }`}
       >
-        <div className="container-custom flex justify-between items-center relative">
+        <div className="container-custom flex justify-between items-center relative px-4">
           {/* Desktop: Logo (Left) | Mobile: Logo (Center) */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <div className="hidden md:block">
               <a href="#hero">
                 <img 
@@ -149,8 +156,8 @@ export default function App() {
           </div>
 
           {/* Desktop: Horizontal Menu (Center) */}
-          <nav className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-fit">
-            <ul className="flex items-center gap-5">
+          <nav className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4">
+            <ul className="flex items-center justify-center gap-6 mx-auto max-w-2xl pr-8">
               {menuItems.map((item) => (
                 <li key={item.name}>
                   <a 
@@ -179,11 +186,11 @@ export default function App() {
           </div>
 
           {/* Right: Hamburger Menu (Mobile) | CTA Button (Desktop) */}
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-end flex-shrink-0 min-w-[280px] pl-16">
             <div className="hidden md:block">
               <a 
                 href={WHATSAPP_LINK}
-                className="btn-primary py-1.5 px-3 text-[12px] whitespace-nowrap"
+                className="btn-primary py-1.5 px-4 text-[12px] whitespace-nowrap"
               >
                 Fale com um especialista
               </a>
@@ -475,6 +482,41 @@ export default function App() {
         </div>
       </section>
 
+      {/* 7.5. MANUAL TÉCNICO ESTRATÉGICO */}
+      <section id="manual-tecnico" className="section-spacing bg-white">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="mb-8">
+              <div className="w-16 h-16 bg-brand-medium rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <FileText size={32} className="text-white" />
+              </div>
+              <h2 className="text-[32px] md:text-[40px] font-bold leading-tight text-brand-dark mb-6">
+                Manual técnico completo
+              </h2>
+              <p className="text-xl text-brand-gray leading-relaxed mb-8">
+                Acesse todas as informações de instalação, configuração e funcionamento do Prospector III 560.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="/manual-prospector-iii-560" 
+                className="btn-primary bg-brand-dark text-white hover:bg-brand-medium px-8 py-4 text-lg inline-flex items-center justify-center gap-3"
+              >
+                <FileText size={20} />
+                Baixar manual técnico completo
+              </a>
+              <a 
+                href="/manual-prospector-iii-560" 
+                className="btn-secondary px-8 py-4 text-lg inline-flex items-center justify-center gap-3"
+              >
+                <ArrowRight size={20} />
+                Ou acessar versão online
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 8. ESPECIFICAÇÕES TÉCNICAS */}
       <section id="especificacoes" className="section-spacing bg-brand-light">
         <div className="container-custom">
@@ -497,6 +539,18 @@ export default function App() {
                 </div>
               ))}
             </div>
+          </div>
+          <div className="mt-8 text-center">
+            <p className="text-brand-gray">
+              Para informações detalhadas, acesse o{" "}
+              <a 
+                href="/manual-prospector-iii-560" 
+                className="text-brand-medium hover:text-brand-dark font-semibold transition-colors"
+              >
+                manual técnico completo
+              </a>
+              .
+            </p>
           </div>
         </div>
       </section>
@@ -565,6 +619,7 @@ export default function App() {
                 <ul className="space-y-2 text-gray-400">
                   <li><a href="#hero" className="hover:text-white transition-colors">Início</a></li>
                   <li><a href="#especificacoes" className="hover:text-white transition-colors">Especificações</a></li>
+                  <li><a href="/manual-prospector-iii-560" className="hover:text-white transition-colors">Manual técnico</a></li>
                   <li><a href="#cta" className="hover:text-white transition-colors">Contato</a></li>
                   <li><a href="https://share.google/wZ4xHEfS9sCvVr2WR" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Nos avalie no Google</a></li>
                 </ul>
@@ -599,6 +654,7 @@ export default function App() {
           referrerPolicy="no-referrer"
         />
       </motion.a>
-    </div>
+      </div>
+    </>
   );
 }
