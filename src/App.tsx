@@ -137,7 +137,7 @@ export default function App() {
             <div className="hidden md:block">
               <a href="#hero">
                 <img 
-                  src="https://res.cloudinary.com/dr0weongo/image/upload/q_auto/f_auto/v1775234673/3_ys6izg.png" 
+                  src="https://res.cloudinary.com/dr0weongo/image/upload/q_auto,f_webp,f_auto/v1775234673/3_ys6izg.png" 
                   alt="Santhiago Tecnologias Logo" 
                   className={`transition-all duration-300 object-contain ${
                     isScrolled ? "h-36" : "h-36"
@@ -168,7 +168,7 @@ export default function App() {
           <div className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <a href="#hero">
               <img 
-                src="https://res.cloudinary.com/dr0weongo/image/upload/q_auto/f_auto/v1775234673/3_ys6izg.png" 
+                src="https://res.cloudinary.com/dr0weongo/image/upload/q_auto,f_webp,f_auto/v1775234673/3_ys6izg.png" loading="lazy" 
                 alt="Santhiago Tecnologias Logo" 
                 className={`transition-all duration-300 object-contain ${
                   isScrolled ? "h-36" : "h-36"
@@ -540,7 +540,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <img 
-                src="https://res.cloudinary.com/dr0weongo/image/upload/q_auto/f_auto/v1775234673/3_ys6izg.png" 
+                src="https://res.cloudinary.com/dr0weongo/image/upload/q_auto,f_webp,f_auto/v1775234673/3_ys6izg.png" loading="lazy" 
                 alt="Santhiago Tecnologias Logo" 
                 className="h-32 w-auto object-contain mb-6 brightness-0 invert"
                 referrerPolicy="no-referrer"
@@ -593,7 +593,7 @@ export default function App() {
         aria-label="Falar no WhatsApp"
       >
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" loading="lazy" 
           alt="WhatsApp" 
           className="w-10 h-10"
           referrerPolicy="no-referrer"
