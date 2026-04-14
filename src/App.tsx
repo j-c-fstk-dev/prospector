@@ -622,7 +622,7 @@ export default function App() {
             &copy; {new Date().getFullYear()} Santhiago Tecnologias. Todos os direitos reservados.
           </div>
           <div className="text-center text-gray-500 text-sm mt-2">
-            desenvolvido por JC Consultoria Digital
+            desenvolvido por <a href="https://consultoriadigitaljc.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">JC Consultoria Digital</a>
           </div>
         </div>
       </footer>

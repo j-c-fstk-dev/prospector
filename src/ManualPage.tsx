@@ -277,6 +277,13 @@ function ManualPage() {
           </div>
         </div>
       </footer>
+      <div className="bg-brand-black text-white py-4">
+        <div className="container-custom">
+          <div className="text-center text-gray-500 text-sm">
+            desenvolvido por <a href="https://consultoriadigitaljc.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">JC Consultoria Digital</a>
+          </div>
+        </div>
+      </div>
       </div>
     </>
   );
