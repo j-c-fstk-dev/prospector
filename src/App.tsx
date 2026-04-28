@@ -28,18 +28,39 @@ const WHATSAPP_LINK = "https://wa.me/5512974095445?text=Olá,%20gostaria%20de%20
 
 function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false); // 🆕 Controla carregamento da imagem atual
+
   const images = [
-    { id: 1, label: "Imagem 1: Prospector III 560 - Vista Frontal" },
-    { id: 2, label: "Imagem 2: Prospector III 560 - Detalhe do Display" },
-    { id: 3, id_label: "Imagem 3: Prospector III 560 - Instalação Real" },
-    { id: 4, label: "Imagem 4: Prospector III 560 - Sensores NTC" },
-    { id: 5, label: "Imagem 5: Prospector III 560 - Diagrama de Conexão" },
+    { 
+      id: 1, 
+      label: "Prospector III 560 - O cérebro da eficiência solar",
+      url: "https://res.cloudinary.com/dr0weongo/image/upload/v1777151900/ProspectorMotseratCarrosssel_dzvdfg.png"
+    },
+    { id: 2, label: "Imagem 2: Prospector III 560 - Detalhe do Display", url: "https://res.cloudinary.com/dr0weongo/image/upload/v1777154518/ProspectorMotseratCarrosssel1_jwnvtw.png" },
+    { id: 3, label: "Imagem 3: Prospector III 560 - Instalação Real", url: "https://res.cloudinary.com/dr0weongo/image/upload/v1777157924/ProspectorMotseratCarrosssel3_gjdsms.png" },
+    { id: 4, label: "Imagem 4: Prospector III 560 - Sensores NTC", url: "https://res.cloudinary.com/dr0weongo/image/upload/v1777212155/Prospector_III_O_c%C3%A9rebro_da_efici%C3%AAncia_solar._Efici%C3%AAncia_m%C3%A1xima_decis%C3%B5es_inteligentes_e_uma_mudan%C3%A7a_total_no_desempenho_da_instala%C3%A7%C3%A3o._ff7h94.png" },
+    { id: 5, label: "Imagem 5: Prospector III 560 - Diagrama de Conexão", url: "https://res.cloudinary.com/dr0weongo/image/upload/v1777217264/Prospector_III_O_c%C3%A9rebro_da_efici%C3%AAncia_solar._Efici%C3%AAncia_m%C3%A1xima_decis%C3%B5es_inteligentes_e_uma_mudan%C3%A7a_total_no_desempenho_da_instala%C3%A7%C3%A3o._1_lzx7jt.png" },
   ];
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  // 🆕 Reseta estado de carregamento quando muda de imagem
+  useEffect(() => {
+    setImageLoaded(false);
+  }, [currentIndex]);
+
+  // 🆕 Handler para quando imagem carrega
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(timer);
   }, [images.length]);
 
@@ -47,52 +68,77 @@ function HeroCarousel() {
   const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <div className="relative aspect-square bg-brand-light rounded-2xl overflow-hidden border border-gray-200 shadow-sm group">
+    <div className="relative w-full aspect-video bg-brand-light rounded-none md:rounded-2xl overflow-hidden border-0 md:border md:border-gray-200 shadow-none md:shadow-sm group">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.5 }}
-          className="absolute inset-0 flex items-center justify-center p-8 text-center"
+          initial={
+            !isLoaded && currentIndex === 0
+              ? { opacity: 0, filter: "blur(10px)" }
+              : { opacity: 0, filter: "blur(5px)" } // 🆕 Blur mais sutil nas transições
+          }
+          animate={
+            imageLoaded || !((images[currentIndex] as any).url)
+              ? { opacity: 1, filter: "blur(0px)" } // 🆕 Só anima quando imagem carregou
+              : { opacity: 0, filter: "blur(5px)" } // Mantém blur enquanto carrega
+          }
+          exit={{ opacity: 0, filter: "blur(5px)" }} // 🆕 Blur na saída também
+          transition={{ duration: 0.6 }} // 🆕 Aumentado ligeiramente para transição mais suave
+          className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="flex flex-col items-center">
-            <Settings size={80} className="text-brand-medium mb-6" />
-            <p className="text-brand-gray font-medium italic">
-              {images[currentIndex].label || (images[currentIndex] as any).id_label}
-            </p>
-            <p className="mt-2 text-xs text-brand-gray/60 uppercase tracking-widest">
-              Substituir por imagem oficial {currentIndex + 1}/5
-            </p>
-          </div>
+          {(images[currentIndex] as any).url ? (
+            <img 
+              src={(images[currentIndex] as any).url} 
+              alt={images[currentIndex].label}
+              className="w-full h-full object-contain"
+              loading="lazy"
+              onLoad={handleImageLoad} // 🆕 Callback quando imagem carrega
+              style={{
+                // 🆕 Garante que a imagem não tem flickering
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden"
+              }}
+            />
+          ) : (
+            <div className="flex flex-col items-center justify-center w-full h-full bg-gray-100">
+              <Settings size={80} className="text-brand-medium mb-6" />
+              <p className="text-brand-gray font-medium italic text-center px-4">
+                {images[currentIndex].label}
+              </p>
+              <p className="mt-2 text-xs text-brand-gray/60 uppercase tracking-widest">
+                Substituir por imagem oficial {currentIndex + 1}/5
+              </p>
+            </div>
+          )}
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - Subtle */}
       <button 
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/80 backdrop-blur-sm rounded-full text-brand-dark shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-20"
+        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/40 backdrop-blur-sm rounded-full text-white shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-20 hover:bg-white/60"
         aria-label="Anterior"
       >
-        <ArrowRight className="rotate-180" size={24} />
+        <ArrowRight className="rotate-180" size={20} />
       </button>
       <button 
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/80 backdrop-blur-sm rounded-full text-brand-dark shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-20"
+        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/40 backdrop-blur-sm rounded-full text-white shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-20 hover:bg-white/60"
         aria-label="Próximo"
       >
-        <ArrowRight size={24} />
+        <ArrowRight size={20} />
       </button>
 
-      {/* Dots */}
+      {/* Dots - Discrete */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === currentIndex ? "bg-brand-dark w-6" : "bg-brand-dark/20"
+            className={`rounded-full transition-all ${
+              index === currentIndex 
+                ? "bg-white/80 w-6 h-2" 
+                : "bg-white/40 w-2 h-2 hover:bg-white/60"
             }`}
             aria-label={`Ir para imagem ${index + 1}`}
           />
@@ -258,46 +304,47 @@ export default function App() {
 
       {/* Add padding to the top of the page to account for fixed header */}
       <div className="">
-        <section id="hero" className="bg-white pt-40 md:pt-48 overflow-hidden pb-8">
-          <div className="container-custom">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              {/* Image Carousel - First on Mobile */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="order-1 md:order-2"
-              >
-                <HeroCarousel />
-              </motion.div>
+        {/* PRÉ-HERO: CARROSSEL */}
+        <section id="carrossel" className="bg-white w-full pt-32 pb-8">
+          <div className="w-full px-4 md:px-0 md:max-w-7xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              <HeroCarousel />
+            </motion.div>
+          </div>
+        </section>
 
-              {/* Text Content - Second on Mobile */}
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="order-2 md:order-1"
-              >
-                <h1>Mais eficiência no aquecimento solar com controle automático</h1>
-                <p className="mt-6 text-brand-gray text-lg">
-                  Automatize o funcionamento da bomba, reduza desperdícios e aumente o desempenho do seu sistema de aquecimento solar com um controlador térmico confiável.
-                </p>
-                <p className="mt-4 text-brand-medium font-semibold">
-                  Ideal para instaladores, técnicos e empresas do setor
-                </p>
-                <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                  <a href={WHATSAPP_LINK} className="btn-primary">
-                    Fale com um especialista
-                  </a>
-                  <a href="#como-funciona" className="btn-secondary">
-                    Como aplicar no meu sistema
-                  </a>
-                </div>
-              </motion.div>
-            </div>
+        {/* HERO: CONTEÚDO */}
+        <section id="hero" className="bg-white pt-12 md:pt-20 pb-8 overflow-hidden">
+          <div className="container-custom">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="max-w-3xl mx-auto text-center"
+            >
+              <h1>Mais eficiência no aquecimento solar com controle automático</h1>
+              <p className="mt-6 text-brand-gray text-lg">
+                Automatize o funcionamento da bomba, reduza desperdícios e aumente o desempenho do seu sistema de aquecimento solar com um controlador térmico confiável.
+              </p>
+              <p className="mt-4 text-brand-medium font-semibold">
+                Ideal para instaladores, técnicos e empresas do setor
+              </p>
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href={WHATSAPP_LINK} className="btn-primary">
+                  Fale com um especialista
+                </a>
+                <a href="#como-funciona" className="btn-secondary">
+                  Como aplicar no meu sistema
+                </a>
+              </div>
+            </motion.div>
           </div>
           
-          {/* Linha de autoridade - Removed gray background */}
+          {/* Linha de autoridade */}
           <div className="mt-16 bg-white py-8 border-y border-gray-100">
             <div className="container-custom text-center">
               <p className="text-brand-dark font-semibold text-lg md:text-xl flex items-center justify-center gap-3">
@@ -339,8 +386,20 @@ export default function App() {
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <div className="aspect-video bg-white rounded-xl flex items-center justify-center border border-gray-200">
-                <p className="text-brand-gray italic">Substituir por imagem do sistema</p>
+              <div className="aspect-video bg-white rounded-xl overflow-hidden border border-gray-200">
+                <video 
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source 
+                    src="https://res.cloudinary.com/dr0weongo/video/upload/v1777217497/video_2026-04-26_12-31-13_blcott.mp4" 
+                    type="video/mp4" 
+                  />
+                  Seu navegador não suporta reprodução de vídeo.
+                </video>
               </div>
             </div>
             <div className="order-1 md:order-2">
