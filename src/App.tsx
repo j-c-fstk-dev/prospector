@@ -451,10 +451,14 @@ export default function App() {
               </div>
             ))}
           </div>
-          <div className="mt-16 bg-brand-light p-8 rounded-2xl border border-gray-200 text-center">
-            <p className="text-brand-gray italic mb-4">Substituir por diagrama simples de funcionamento</p>
-            <div className="h-48 bg-white rounded-lg flex items-center justify-center border border-dashed border-gray-300">
-              <Waves size={48} className="text-gray-300" />
+          <div className="mt-16 bg-brand-light p-6 md:p-8 rounded-2xl border border-gray-200">
+            <div className="w-full max-w-6xl mx-auto">
+              <img 
+                src="https://res.cloudinary.com/dr0weongo/image/upload/v1777665089/prospectordiagrama_thcrya.png"
+                alt="Diagrama de funcionamento do Prospector III 560"
+                className="w-full h-auto rounded-lg shadow-lg"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
