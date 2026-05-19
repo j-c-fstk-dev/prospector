@@ -10,7 +10,6 @@ import {
   CheckCircle2, 
   AlertCircle, 
   ArrowRight, 
-  Play, 
   Settings, 
   Zap, 
   ShieldCheck, 
@@ -533,14 +532,19 @@ export default function App() {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2>Veja o Prospector III em funcionamento</h2>
           </div>
-          <div className="max-w-4xl mx-auto aspect-video bg-brand-dark rounded-2xl flex flex-col items-center justify-center relative group cursor-pointer overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-brand-dark/40 group-hover:bg-brand-dark/20 transition-colors z-10"></div>
-            <div className="z-20 flex flex-col items-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Play size={32} className="text-brand-dark ml-1" />
-              </div>
-              <p className="text-white font-semibold">Substituir por embed de vídeo oficial</p>
-            </div>
+          <div className="max-w-4xl mx-auto aspect-video bg-brand-dark rounded-2xl overflow-hidden shadow-2xl">
+            <video
+              className="w-full h-full object-cover"
+              controls
+              preload="metadata"
+              playsInline
+            >
+              <source
+                src="https://res.cloudinary.com/dr0weongo/video/upload/v1779210225/prospector-iii-560-configuracao-funcionamento_pjxosh.mp4"
+                type="video/mp4"
+              />
+              Seu navegador não suporta a reprodução deste vídeo.
+            </video>
           </div>
         </div>
       </section>
