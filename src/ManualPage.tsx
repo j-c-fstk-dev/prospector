@@ -15,7 +15,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 
-const WHATSAPP_LINK = "https://wa.me/5512974095445?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20manual%20do%20Prospector%20III%20560.";
+const WHATSAPP_LINK = "https://wa.me/5512991451773?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20manual%20do%20Prospector%20III%20560.";
 const MANUAL_PDF_URL = "/manual-prospector-iii-560.pdf";
 
 function ManualPage() {

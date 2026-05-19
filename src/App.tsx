@@ -24,7 +24,7 @@ import {
   FileText
 } from "lucide-react";
 
-const WHATSAPP_LINK = "https://wa.me/5512974095445?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Prospector%20III%20560.";
+const WHATSAPP_LINK = "https://wa.me/5512991451773?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Prospector%20III%20560.";
 
 function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -667,7 +667,7 @@ export default function App() {
                 <h4 className="font-bold mb-4 uppercase text-xs tracking-widest text-gray-500">Contato</h4>
                 <ul className="space-y-2 text-gray-400">
                   <li>Email: <a href="mailto:contato@santhtec.com.br" className="hover:text-white transition-colors">contato@santhtec.com.br</a></li>
-                  <li>Telefone: (12) 97409-5445</li>
+                  <li>Telefone: (12) 99145-1773</li>
                 </ul>
               </div>
               <div>
